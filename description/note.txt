@@ -1,0 +1,16 @@
+[Transform]
+Static:
+    $ ros2 run tf2_ros static_transform_publisher x y z yaw pitch roll parent_frane child_frame
+    ros2 run rf2_ros static_transform_publisher 0 0 0 0 0 0 parent_frane child_frame
+
+    $ ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_description:="$( xacra ~/example_robot.urdf.xacro )"
+
+
+
+[URDF]
+    $ ros2 run joint_state_publisher_gui joint_state_publisher_gui
+
+
+
+ros2 launch my_bot rsp.launch.p
+rviz2
