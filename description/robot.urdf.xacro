@@ -4,8 +4,11 @@
     <!-- Example link -->
     <!-- <link name="base_link"></link> -->
 
+    <!-- Descript main robot -->
     <xacro:include filename="robot_core.xacro"/>
-
+    <!-- For Gazebo simulation -->
     <xacro:include filename="gazebo_control.xacro"/>
+    <!-- Lidar -->
+    <xacro:include filename="lidar.xacro"/>
 
 </robot>
