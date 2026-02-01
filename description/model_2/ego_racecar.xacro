@@ -66,7 +66,7 @@
   </gazebo>
 
   <!-- Back left wheel -->
-  <joint name="base_to_back_left_wheel" type="fixed">
+  <joint name="base_to_back_left_wheel" type="continuous">
     <parent link="${car_name}/base_link"/>
     <child link="${car_name}/back_left_wheel"/>
     <origin xyz="0 ${(wheel_length+width)/2} ${wheel_radius}" rpy="-${pi/2} 0.0 0.0"/>
@@ -94,7 +94,7 @@
   </gazebo>
 
   <!-- Back right wheel -->
-  <joint name="base_to_back_right_wheel" type="fixed">
+  <joint name="base_to_back_right_wheel" type="continuous">
     <parent link="${car_name}/base_link"/>
     <child link="${car_name}/back_right_wheel"/>
     <origin xyz="0 ${-(wheel_length+width)/2} ${wheel_radius}" rpy="${pi/2} 0.0 0.0"/>
@@ -132,7 +132,7 @@
   <link name="${car_name}/front_left_hinge"/>
 
   <!-- Front left wheel [Joint] -->
-  <joint name="front_left_hinge_to_wheel" type="continuous">
+  <joint name="front_left_hinge_to_wheel" type="fixed">
     <parent link="${car_name}/front_left_hinge"/>
     <child link="${car_name}/front_left_wheel"/>
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -170,7 +170,7 @@
   <link name="${car_name}/front_right_hinge"/>
 
   <!-- Front right wheel [Joint] -->
-  <joint name="front_right_hinge_to_wheel" type="continuous">
+  <joint name="front_right_hinge_to_wheel" type="fixed">
     <parent link="${car_name}/front_right_hinge"/>
     <child link="${car_name}/front_right_wheel"/>
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
