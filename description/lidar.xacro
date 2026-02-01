@@ -3,10 +3,10 @@
 
     <joint name="lidar_joint" type="fixed">
         <parent link="chassis_link"/>
-        <child link="lidar_link"/>
+        <child link="laser_frame"/>
         <origin xyz="0.1 0.0 0.175" rpy="0.0 0.0 0.0"/>
     </joint>
-    <link name="lidar_link">
+    <link name="laser_frame">
         <visual>
             <geometry>
                 <cylinder radius="0.05" length="0.04"/>
@@ -23,10 +23,10 @@
         </xacro:inertial_cylinder>
     </link>
 
-    <gazebo reference="lidar_link">
+    <gazebo reference="laser_frame">
         <material>Gazebo/Red</material>
         <!-- The name of sensor is not fixed -->
-        <sensor name="lidar" type="ray">
+        <sensor name="laser" type="ray">
             <!-- The same origin with the link -->
             <pose> 0 0 0 0 0 0 </pose>
             <visualize>true</visualize>
@@ -45,13 +45,13 @@
                 </range>
             </ray>
             <!-- The name does not matter -->
-            <plugin name="Lidar_controller" filename="libgazebo_ros_ray_sensor.so">
+            <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
                 <!-- What topic to publish -->
                 <ros>
                     <argument>--ros-args --remap ~/out:=scan</argument>
                 </ros>
                 <output_type>sensor_msgs/LaserScan</output_type>
-                <frame_name>lidar_link</frame_name>
+                <frame_name>laser_frame</frame_name>
             </plugin>
         </sensor>
     </gazebo>
