@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!--
+    Gazebo ROS Diff Drive plugin configuration
+    Assumes your drive wheels are the BACK wheels:
+      - base_to_back_left_wheel
+      - base_to_back_right_wheel
+
+    And your base link is:
+      ${car_name}/base_link
+  -->
+
+  <gazebo>
+    <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
+
+      <!-- ROS integration -->
+      <ros>
+        <!-- Optional: put everything under a namespace -->
+        <namespace>${car_name}</namespace>
+
+        <!-- Optional remaps (only if you want) -->
+        <!-- <remapping>cmd_vel:=cmd_vel</remapping> -->
+        <!-- <remapping>odom:=odom</remapping> -->
+      </ros>
+
+      <!-- Wheel joints (MUST match your URDF joint names exactly) -->
+      <left_joint>base_to_back_left_wheel</left_joint>
+      <right_joint>base_to_back_right_wheel</right_joint>
+
+      <!-- Geometry: match your URDF numbers -->
+      <!-- Your wheel y-offset is (wheel_length+width)/2
+           => separation should be (wheel_length + width)
+           wheel_length=0.0381, width=0.2032 => 0.2413 -->
+      <wheel_separation>${wheel_length + width}</wheel_separation>
+
+      <!-- wheel_diameter = 2 * wheel_radius -->
+      <wheel_diameter>${2 * wheel_radius}</wheel_diameter>
+
+      <!-- Limits -->
+      <max_wheel_torque>200</max_wheel_torque>
+      <max_wheel_acceleration>10.0</max_wheel_acceleration>
+
+      <!-- TF / frames -->
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>${car_name}/base_link</robot_base_frame>
+
+      <!-- Publishing -->
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>true</publish_wheel_tf>
+
+      <!-- Optional plugin settings -->
+      <update_rate>50</update_rate>
+
+      <!-- Topics (defaults are usually fine, but explicit is nice) -->
+      <command_topic>cmd_vel</command_topic>
+      <odometry_topic>odom</odometry_topic>
+
+    </plugin>
+  </gazebo>
+
+</robot>
