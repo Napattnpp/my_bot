@@ -11,7 +11,7 @@
             <geometry>
                 <cylinder radius="0.05" length="0.04"/>
             </geometry>
-            <material name="red"/>
+            <material name="orage"/>
         </visual>
         <collision>
             <geometry>
@@ -24,7 +24,7 @@
     </link>
 
     <gazebo reference="laser">
-        <material>Gazebo/Red</material>
+        <material>Gazebo/Orange</material>
         <!-- The name of sensor is not fixed -->
         <sensor name="laser" type="ray">
             <!-- The same origin with the link -->
