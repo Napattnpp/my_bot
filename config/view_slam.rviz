@@ -8,6 +8,7 @@ Panels:
         - /Status1
         - /LaserScan1
         - /Map1
+        - /Map1/Topic1
       Splitter Ratio: 0.5
     Tree Height: 475
   - Class: rviz_common/Selection
@@ -186,7 +187,7 @@ Visualization Manager:
       Name: Map
       Topic:
         Depth: 5
-        Durability Policy: Volatile
+        Durability Policy: Transient Local
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /map
@@ -240,7 +241,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0.029999990016222
+      Angle: 0.06499999761581421
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -250,7 +251,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 34.28459548950195
+      Scale: 42.890262603759766
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz_default_plugins)
       X: 0.8266519904136658
